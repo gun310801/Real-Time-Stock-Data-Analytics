@@ -14,7 +14,7 @@ Websocket :
 wss://stream.data.alpaca.markets/v2/iex
 wss://stream.data.alpaca.markets/v2/test
 
-##AWS
+## AWS
 
 1. Create EMR Cluster
 2. Edit EC2 Security Groups - give access to local machine's ip
