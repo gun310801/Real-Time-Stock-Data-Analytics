@@ -44,15 +44,42 @@ Websocket :
 
 5. Set up Producer.py
 - vim producer.py
+- bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic symbol_topic
+- bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic symbol_topic2
 - mkdir -p /home/hadoop/producer1
 - nano /home/hadoop/producer1/log4j.properties
+- spark-submit --conf “spark.driver.extraJavaOptions=-Dlog4j.configuration=producer1/log4j.properties" \
+             --conf “spark.executor.extraJavaOptions=-Dlog4j.configuration=producer1/log4j.properties" \
+             producer.py
+
 
 
 6. Set up Consumer.py
+- vim consumer.py
+- bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic visual_topic
+- bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic visual_topic2
+- mkdir -p /home/hadoop/consumer1
+- nano /home/hadoop/consumer1/log4j.properties
+- spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1 \
+             --conf "spark.driver.extraJavaOptions=-Dlog4j.configuration=file:/home/hadoop/consumer1/log4j.properties" \
+             --conf "spark.executor.extraJavaOptions=-Dlog4j.configuration=file:/home/hadoop/consumer1/log4j.properties" \
+             consumer1.py
+
+
 7. Set up Visualizer (Viz.py)
+- ~/.local/bin/streamlit run viz.py --server.port 8501 --server.address 0.0.0.0
+- ec2-> Security Groups -> Edit Inbound Rules -> add 8501, 0.0.0.0/0 ->Save rules
+
+
 8. Set up Log Visualizer (log_viz.py)
+- ~/.local/bin/streamlit run log_viz.py --server.port 8502 --server.address 0.0.0.0
+- ec2-> Security Groups -> Edit Inbound Rules -> add 8502, 0.0.0.0/0 ->Save rules
+
+
 9. Ganglia (data monitoring)
     - look for ganglia application under emr
     - ssh tunneling to port 8050
     - create a SOCKS5 proxy on the browser
-    - look for master/dns url 
+    - look for master/dns url
+    - ssh -i ./aws-master-node.pem -ND 8050 hadoop@ec2-44-201-28-163.compute-1.amazonaws.com
+    - proxy onto SOCKS5
