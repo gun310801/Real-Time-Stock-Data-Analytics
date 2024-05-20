@@ -37,13 +37,14 @@ Websocket :
 - tar -xzf kafka_2.13-3.5.2.tgz
 - cd kafka_2.13-3.5.2
 - nano config/server.properties
-- look for advertized listeners and change it to ec2's host ip for master node
+- look for advertized listeners and change it to ec2's host ip for master node [ ec2's host ip for master node - ip-10-x-x.ec2.internal ]
 - look for zookeeper connect and change it to ec2's host ip for master node
 - bin/kafka-server-start.sh config/server.properties
 
 
 5. Set up Producer.py
 - vim producer.py
+- update kafka-bootstrap-server with [ip-10-x-x.ec2.internal]
 - bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic symbol_topic
 - bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic symbol_topic2
 - mkdir -p /home/hadoop/producer1
@@ -56,6 +57,7 @@ Websocket :
 
 6. Set up Consumer.py
 - vim consumer.py
+- update kafka-bootstrap-server with [ip-10-x-x.ec2.internal]
 - bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic visual_topic
 - bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic visual_topic2
 - mkdir -p /home/hadoop/consumer1
@@ -64,7 +66,9 @@ Websocket :
              --conf "spark.driver.extraJavaOptions=-Dlog4j.configuration=file:/home/hadoop/consumer1/log4j.properties" \
              --conf "spark.executor.extraJavaOptions=-Dlog4j.configuration=file:/home/hadoop/consumer1/log4j.properties" \
              consumer1.py
-
+- vim consumer2.py
+- update kafka-bootstrap-server with [ip-10-x-x.ec2.internal]
+- spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1 consumer2.py
 
 7. Set up Visualizer (Viz.py)
 - ~/.local/bin/streamlit run viz.py --server.port 8501 --server.address 0.0.0.0
