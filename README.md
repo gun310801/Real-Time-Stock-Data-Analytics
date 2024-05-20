@@ -32,7 +32,7 @@ Websocket :
 4. Set up kafka
 - pip install kafka-python
 - pip install boto3
-- pip install websocket-client streamlit watchdog
+- pip install websocket-client streamlit watchdog plotly
 -  wget https://downloads.apache.org/kafka/3.5.2/kafka_2.13-3.5.2.tgz
 - tar -xzf kafka_2.13-3.5.2.tgz
 - cd kafka_2.13-3.5.2
