@@ -87,3 +87,6 @@ Websocket :
     - look for master/dns url
     - ssh -i ./aws-master-node.pem -ND 8050 hadoop@ec2-44-201-28-163.compute-1.amazonaws.com
     - proxy onto SOCKS5
+
+Demo:
+https://stevens.zoom.us/rec/share/y5wKK1-hd9FhHAZ8MyxMaIcaGh0pxRAR-ZCoWAw1HWT0OsA-6SaX33J9n9Lo3TFr.p_vYE-iL_XVfAdoA
