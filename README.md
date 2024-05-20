@@ -11,8 +11,8 @@
  - Bar Data for FAKEPACA 
 
 Websocket : 
-wss://stream.data.alpaca.markets/v2/iex
-wss://stream.data.alpaca.markets/v2/test
+- wss://stream.data.alpaca.markets/v2/iex
+- wss://stream.data.alpaca.markets/v2/test
 
 ## AWS
 
