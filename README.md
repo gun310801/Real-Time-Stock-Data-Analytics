@@ -81,12 +81,12 @@ Websocket :
 
 
 9. Ganglia (data monitoring)
-    - look for ganglia application under emr
-    - ssh tunneling to port 8050
+    - look for ganglia application under emr, enable ssh configuration 
+    - ssh tunneling to port 8050 [ ssh -i ./aws-master-node.pem -ND 8050 hadoop@ec2-44-201-28-163.compute-1.amazonaws.com]
+    - copy uri into a new tab
     - create a SOCKS5 proxy on the browser
-    - look for master/dns url
-    - ssh -i ./aws-master-node.pem -ND 8050 hadoop@ec2-44-201-28-163.compute-1.amazonaws.com
     - proxy onto SOCKS5
+    - reload
 
 Demo:
 https://stevens.zoom.us/rec/share/y5wKK1-hd9FhHAZ8MyxMaIcaGh0pxRAR-ZCoWAw1HWT0OsA-6SaX33J9n9Lo3TFr.p_vYE-iL_XVfAdoA
