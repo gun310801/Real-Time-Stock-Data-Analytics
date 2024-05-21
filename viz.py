@@ -6,11 +6,11 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
 # Kafka bootstrap servers
-kafka_bootstrap_servers = ['ip-10-0-31-206.ec2.internal:9092']
+kafka_bootstrap_servers = ['ip-x-x-x-x.ec2.internal:9092']
 
 # Kafka topics
 kafka_output_topic = "visual_topic"
-kafka_output_topic2 = "symbol_topic7"
+kafka_output_topic2 = "visual_topic2"
 
 # Initialize Kafka consumers for each topic
 consumer = KafkaConsumer(kafka_output_topic, bootstrap_servers=kafka_bootstrap_servers, auto_offset_reset='earliest')
