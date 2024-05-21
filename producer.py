@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 ])
 
 # Kafka broker address
-bootstrap_servers = ['ip-10-0-31-206.ec2.internal:9092']
+bootstrap_servers = ['ip-x-x-x-x.ec2.internal:9092']
 
 # Kafka topic for the symbol
 topic = 'symbol_topic'
