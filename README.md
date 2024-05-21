@@ -1,6 +1,6 @@
 # Analytics on Stock Market Data Live Stream using AWS
 
-## Data :
+### Data 
 
  Live Market Data:
  1. During Market Hours
@@ -14,7 +14,7 @@ Websocket :
 - wss://stream.data.alpaca.markets/v2/iex
 - wss://stream.data.alpaca.markets/v2/test
 
-## AWS
+### AWS
 
 1. Create EMR Cluster
 - Configure Cluster
