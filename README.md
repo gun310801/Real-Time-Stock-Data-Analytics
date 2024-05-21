@@ -47,11 +47,7 @@ Websocket :
 - update kafka-bootstrap-server with [ip-10-x-x.ec2.internal]
 - bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic symbol_topic
 - bin/kafka-topics.sh --create --bootstrap-server ip-10-0-x-x.ec2.internal:9092 --replication-factor 1 --partitions 1 --topic symbol_topic2
-- mkdir -p /home/hadoop/producer1
-- nano /home/hadoop/producer1/log4j.properties
-- spark-submit --conf “spark.driver.extraJavaOptions=-Dlog4j.configuration=producer1/log4j.properties" \
-             --conf “spark.executor.extraJavaOptions=-Dlog4j.configuration=producer1/log4j.properties" \
-             producer.py
+- spark-submit producer.py
 
 
 
@@ -76,6 +72,7 @@ Websocket :
 
 
 8. Set up Log Visualizer (log_viz.py)
+-  sudo sysctl fs.inotify.max_user_watches=524288
 - ~/.local/bin/streamlit run log_viz.py --server.port 8502 --server.address 0.0.0.0
 - ec2-> Security Groups -> Edit Inbound Rules -> add 8502, 0.0.0.0/0 ->Save rules
 
