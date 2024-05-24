@@ -6,7 +6,7 @@ import random
 
 
 # Kafka broker address
-bootstrap_servers = ['ip-10-0-17-149.ec2.internal:9092']
+bootstrap_servers = ['ip-x-x-x-x.ec2.internal:9092']
 
 # Kafka topic for the symbol
 topic = 'symbol_topic'
@@ -65,17 +65,16 @@ def on_open(ws):
     print("Opened connection")
     auth_data = {
         "action": "auth",
-        "key": "PK4GRC339YQJ0OQKTCLO",
-        "secret": "QSGanmcvp1ezlHA41gIGL6G4v7ys8SuCIKf0Gd3P"
+        "key": "YOUR_KEY",
+        "secret": "YOUR_SECRET_KEY"
     }
     ws.send(json.dumps(auth_data))
     listen_message = {
         "action": "subscribe",
-        # "trades": ["AAPL"],
-        #"quotes": ["AAPL"],
-        "quotes":["FAKEPACA"],
-        #"bars": ["AAPL", "SPY", "DIA","MSFT","TSLA","META","GOOG"]
-        "bars": ["FAKEPACA"]
+        "quotes": ["AAPL"],
+        #"quotes":["FAKEPACA"],
+        "bars": ["AAPL", "SPY", "DIA","MSFT","TSLA","META","GOOG"]
+        #"bars": ["FAKEPACA"]
     }
     ws.send(json.dumps(listen_message))
     print(listen_message)
