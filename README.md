@@ -1,5 +1,9 @@
 # Analytics on Stock Market Data Live Stream using AWS
 
+
+![image](https://github.com/user-attachments/assets/7e7b6369-9d2a-47bd-98f1-3dcc34888a1d)
+## Capstone Project with Chubb
+
 ### Data 
 
  Live Market Data:
